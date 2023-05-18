@@ -1,4 +1,52 @@
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import { updateProfile } from "firebase/auth";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 const Register = () => {
+  const { user, createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSubmitButton = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoLinkURL = form.photo.value;
+    console.log(email, password);
+
+    if (password.length < 6) {
+      setError("Password must be 6 character!");
+    }
+    createUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        updateUserName(result.user, name);
+        updateProfilePhoto(result.user, photoLinkURL);
+        form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const updateUserName = (user, name) => {
+    updateProfile(user, {
+      displayName: name,
+    });
+  };
+
+  const updateProfilePhoto = (user, photoUrl) => {
+    updateProfile(user, {
+      photoURL: photoUrl,
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -9,7 +57,7 @@ const Register = () => {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6">
+          <form onSubmit={handleSubmitButton} className="space-y-6">
             <div>
               <label
                 htmlFor="name"
@@ -85,7 +133,7 @@ const Register = () => {
               </div>
             </div>
 
-            {/* <p className="font-semibold text-red-600">{error}</p> */}
+            <p className="font-semibold text-red-600">{error}</p>
 
             <div className="pt-5">
               <button

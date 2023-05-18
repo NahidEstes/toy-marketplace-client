@@ -1,8 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleHover = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+  const logOutHandler = () => {
+    logOut()
+      .then()
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="bg-white">
@@ -46,6 +64,42 @@ const Header = () => {
               </NavLink>
             </li>
           </ul>
+
+          {user ? (
+            <div className="flex">
+              <div className="lg:w-32 h-11 cursor-pointer">
+                {!isHovering && user.photoURL && (
+                  <img
+                    src={user?.photoURL}
+                    className="w-11 h-11 rounded-full border-none mr-3 transition-opacity duration-300 ease-in-out"
+                    onMouseEnter={handleHover}
+                    alt=""
+                  />
+                )}
+                {isHovering && (
+                  <p
+                    onMouseLeave={handleMouseLeave}
+                    className="font-semibold capitalize text-lg transition-opacity duration-300 ease-in-out mt-3"
+                  >
+                    {user.displayName}
+                  </p>
+                )}
+              </div>
+              {/* <span>{user.displayName}</span> */}
+              <button
+                onClick={logOutHandler}
+                className="px-3 py-2 bg-orange-400 font-bold text-white rounded"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="px-3 py-2 bg-orange-400 font-bold text-white rounded">
+                Log In
+              </button>
+            </Link>
+          )}
 
           {/* -------------- */}
           <div className="lg:hidden">

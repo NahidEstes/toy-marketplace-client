@@ -26,11 +26,22 @@ const Header = () => {
     <div className="bg-white">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <Link to="/" aria-label="ChefRecipe" title="ChefRecipe">
-            <span className="ml-2 text-2xl font-bold tracking-wide text-gray-800">
-              Toy<span className="text-blue-600">Market</span>
+          <Link
+            to="/"
+            aria-label="ChefRecipe"
+            title="ChefRecipe"
+            className="flex"
+          >
+            <img
+              className="w-12"
+              src="https://i.ibb.co/DDwNJ2M/logo.jpg"
+              alt=""
+            />
+            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800">
+              Toy<span className="text-blue-600">Shop</span>
             </span>
           </Link>
+
           <ul className="items-center hidden space-x-8 lg:flex font-semibold text-lg">
             <li>
               <NavLink
@@ -42,6 +53,18 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
+
+            <li>
+              <NavLink
+                to="/allToys"
+                aria-label="AllToys"
+                title="AllToys"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                All Toys
+              </NavLink>
+            </li>
+
             <li>
               <NavLink
                 to="/blogs"
@@ -88,14 +111,14 @@ const Header = () => {
               {/* <span>{user.displayName}</span> */}
               <button
                 onClick={logOutHandler}
-                className="px-3 py-2 bg-orange-400 font-bold text-white rounded"
+                className="px-3 py-2 bg-blue-600 font-bold text-white rounded"
               >
                 Logout
               </button>
             </div>
           ) : (
             <Link to="/login">
-              <button className="px-3 py-2 bg-orange-400 font-bold text-white rounded">
+              <button className="px-3 py-2 bg-blue-600 font-bold text-white rounded">
                 Log In
               </button>
             </Link>

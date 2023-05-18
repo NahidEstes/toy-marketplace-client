@@ -6,6 +6,7 @@ const AddToy = () => {
   const [sellerName, setSellerName] = useState("");
   const [sellerEmail, setSellerEmail] = useState("");
   const [price, setPrice] = useState("");
+  const [subCategory, setSubCategory] = useState("");
   const [rating, setRating] = useState("");
   const [quantity, setQuantity] = useState("");
   const [description, setDescription] = useState("");
@@ -57,7 +58,16 @@ const AddToy = () => {
         onChange={(e) => setPictureUrl(e.target.value)}
         className="w-full border border-gray-300 p-2 rounded mb-4"
       />
-
+      <label htmlFor="subCategory" className="block mb-2">
+        Sub-category:
+      </label>
+      <input
+        type="text"
+        id="subCategory"
+        value={subCategory}
+        onChange={(e) => setSubCategory(e.target.value)}
+        className="w-full border border-gray-300 p-2 rounded mb-4"
+      />
       <label htmlFor="sellerName" className="block mb-2">
         Seller Name:
       </label>

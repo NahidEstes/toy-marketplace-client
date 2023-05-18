@@ -1,45 +1,56 @@
-import React from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import React, { useState } from "react";
+
+const Tab = ({ activeTab, label, onClick }) => {
+  const isActive = activeTab === label;
+
+  return (
+    <div
+      className={`tab ${isActive ? "active" : ""}`}
+      onClick={() => onClick(label)}
+    >
+      {label}
+    </div>
+  );
+};
+
+const TabContent = ({ activeTab, label, children }) => {
+  if (activeTab !== label) {
+    return null;
+  }
+
+  return <div className="tab-content">{children}</div>;
+};
 
 const NestedTabs = () => {
+  const [activeTab, setActiveTab] = useState("Tab 1");
+
+  const handleTabClick = (label) => {
+    setActiveTab(label);
+  };
+
   return (
-    <Tabs>
-      <TabList>
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
-      </TabList>
+    <div>
+      <div className="tabs">
+        <Tab activeTab={activeTab} label="Tab 1" onClick={handleTabClick} />
+        <Tab activeTab={activeTab} label="Tab 2" onClick={handleTabClick} />
+        <Tab activeTab={activeTab} label="Tab 3" onClick={handleTabClick} />
+      </div>
 
-      <TabPanel>
-        <h2>Content of Tab 1</h2>
-        <Tabs>
-          <TabList>
-            <Tab>Sub Tab 1</Tab>
-            <Tab>Sub Tab 2</Tab>
-            <Tab>Sub Tab 3</Tab>
-          </TabList>
-
-          <TabPanel>
-            <h3>Content of Sub Tab 1</h3>
-          </TabPanel>
-          <TabPanel>
-            <h3>Content of Sub Tab 2</h3>
-          </TabPanel>
-          <TabPanel>
-            <h3>Content of Sub Tab 3</h3>
-          </TabPanel>
-        </Tabs>
-      </TabPanel>
-
-      <TabPanel>
-        <h2>Content of Tab 2</h2>
-      </TabPanel>
-
-      <TabPanel>
-        <h2>Content of Tab 3</h2>
-      </TabPanel>
-    </Tabs>
+      <div className="tab-content-container">
+        <TabContent activeTab={activeTab} label="Tab 1">
+          <div>
+            Content of Tab 1
+            <NestedTabs /> {/* Render nested tabs */}
+          </div>
+        </TabContent>
+        <TabContent activeTab={activeTab} label="Tab 2">
+          Content of Tab 2
+        </TabContent>
+        <TabContent activeTab={activeTab} label="Tab 3">
+          Content of Tab 3
+        </TabContent>
+      </div>
+    </div>
   );
 };
 

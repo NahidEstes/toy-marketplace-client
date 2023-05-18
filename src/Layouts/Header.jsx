@@ -10,7 +10,7 @@ const Header = () => {
         <div className="relative flex items-center justify-between">
           <Link to="/" aria-label="ChefRecipe" title="ChefRecipe">
             <span className="ml-2 text-2xl font-bold tracking-wide text-gray-800">
-              Toy<span className="text-orange-400">Market</span>
+              Toy<span className="text-blue-600">Market</span>
             </span>
           </Link>
           <ul className="items-center hidden space-x-8 lg:flex font-semibold text-lg">
@@ -32,6 +32,17 @@ const Header = () => {
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Blogs
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/addToy"
+                aria-label="AddToy"
+                title="AddToy"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                Add Toy
               </NavLink>
             </li>
           </ul>
@@ -111,6 +122,16 @@ const Header = () => {
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Blogs
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/addToy"
+                          aria-label="AddToy"
+                          title="AddToy"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                          Add Toy
                         </Link>
                       </li>
                     </ul>

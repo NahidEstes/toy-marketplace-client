@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Form = () => {
+  const { user } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -71,6 +73,7 @@ const Form = () => {
           <input
             type="text"
             id="sellerName"
+            defaultValue={user.displayName}
             name="sellerName"
             className="w-full border border-gray-300 p-2 rounded mb-4"
           />
@@ -81,6 +84,7 @@ const Form = () => {
           <input
             type="email"
             id="sellerEmail"
+            defaultValue={user.email}
             name="sellerEmail"
             className="w-full border border-gray-300 p-2 rounded mb-4"
           />

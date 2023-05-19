@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const MyToys = () => {
-  const toysData = useLoaderData();
-  const [toysItem, setToysItem] = useState(toysData);
+  //   const toysData = useLoaderData();
+  const { user } = useContext(AuthContext);
+
+  //   const [specificToyUser, setSpecificToyUser] = useContext([]);
+  const [toysItem, setToysItem] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/toysSeller?sellerEmail=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setToysItem(data);
+      });
+  }, []);
+
   const handleDeleteItem = (id) => {
     console.log(id);
     fetch(`https://11th-assignment-server-nahidestes.vercel.app/toys/${id}`, {
@@ -22,7 +36,7 @@ const MyToys = () => {
   return (
     <div className="custom-container">
       <h1 className="text-center text-3xl font-semibold">
-        My Toys: {toysData.length}
+        My Toys: {toysItem.length}
       </h1>
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
@@ -39,7 +53,7 @@ const MyToys = () => {
           </tr>
         </thead>
         <tbody>
-          {toysData.map((toy, index) => (
+          {toysItem.map((toy, index) => (
             <tr
               key={toy._id}
               className={

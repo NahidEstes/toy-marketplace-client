@@ -10,6 +10,7 @@ import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import UpdateProduct from "../Pages/UpdateProudct/UpdateProduct";
 import ToysDetails from "../Pages/ToysDetails/ToysDetails";
+import PrivateRoute from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
 
       {
         path: "/addToy",
-        element: <AddToy />,
+        element: (
+          <PrivateRoute>
+            <AddToy />
+          </PrivateRoute>
+        ),
       },
 
       {
@@ -35,17 +40,27 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys />,
-        loader: () => fetch("http://localhost:5000/toys"),
+        loader: () =>
+          fetch("https://11th-assignment-server-nahidestes.vercel.app/toys"),
       },
       {
         path: "/myToys",
-        element: <MyToys />,
-        loader: () => fetch("http://localhost:5000/toys"),
+        element: (
+          <PrivateRoute>
+            <MyToys />
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch("https://11th-assignment-server-nahidestes.vercel.app/toys"),
       },
 
       {
         path: "/toyDetails",
-        element: <ToysDetails />,
+        element: (
+          <PrivateRoute>
+            <ToysDetails />
+          </PrivateRoute>
+        ),
       },
 
       {

@@ -6,7 +6,7 @@ const MyToys = () => {
   const [toysItem, setToysItem] = useState(toysData);
   const handleDeleteItem = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/toys/${id}`, {
+    fetch(`https://11th-assignment-server-nahidestes.vercel.app/toys/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -28,7 +28,7 @@ const Form = () => {
       description,
     };
     console.log(user);
-    fetch("http://localhost:5000/toys", {
+    fetch("https://11th-assignment-server-nahidestes.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

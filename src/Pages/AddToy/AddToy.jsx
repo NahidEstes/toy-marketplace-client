@@ -114,9 +114,9 @@ const Form = () => {
             className="w-full border border-gray-300 p-2 rounded mb-4"
           >
             <option value="">Choose Category</option>
-            <option value="Police Car">Police Car</option>
-            <option value="Truck">Truck</option>
-            <option value="Sports Car">Sports Car</option>
+            <option value="policeCar">Police Car</option>
+            <option value="truck">Truck</option>
+            <option value="sportsCar">Sports Car</option>
           </select>
 
           <label htmlFor="rating" className="block mb-2">

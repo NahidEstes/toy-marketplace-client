@@ -1,31 +1,74 @@
+import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
 
-const TabCategory = () => (
-  <>
-    <div className="custom-container mt-16">
-      <h1 className="text-center text-3xl font-bold">Shop Category</h1>
-      <div className="mt-5">
-        <Tabs>
-          <TabList>
-            <Tab>Police Car</Tab>
-            <Tab>Truck</Tab>
-            <Tab>Sports Car</Tab>
-          </TabList>
+const TabCategory = () => {
+  const [selectedTab, setSelectedTab] = useState(0);
+  const [cars, setCars] = useState([]);
 
-          <TabPanel>
-            <h2>Any content 1</h2>
-          </TabPanel>
-          <TabPanel>
-            <h2>Any content 2</h2>
-          </TabPanel>
-          <TabPanel>
-            <h2>Any content 4</h2>
-          </TabPanel>
-        </Tabs>
-      </div>
+  useEffect(() => {
+    // Fetch car data from the server
+    fetch("http://localhost:5000/toys")
+      .then((response) => response.json())
+      .then((data) => setCars(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  const filteredCars = cars.filter((car) => {
+    if (selectedTab === 0) {
+      return car.subCategory === "policeCar";
+    } else if (selectedTab === 1) {
+      return car.subCategory === "truck";
+    } else if (selectedTab === 2) {
+      return car.subCategory === "sportsCar";
+    }
+    return false;
+  });
+
+  const handleTabSelect = (index) => {
+    setSelectedTab(index);
+  };
+
+  return (
+    <div className="my-14 custom-container">
+      <h1 className="text-center font-semibold text-3xl my-10">
+        Shop By Category
+      </h1>
+      <Tabs selectedIndex={selectedTab} onSelect={handleTabSelect}>
+        <TabList>
+          <Tab>Police Car</Tab>
+          <Tab>Truck</Tab>
+          <Tab>Sports Car</Tab>
+        </TabList>
+
+        <TabPanel>
+          {filteredCars.map((car) => {
+            if (car.subCategory === "policeCar") {
+              return <div key={car._id}>{car.name}</div>;
+            }
+            return null;
+          })}
+        </TabPanel>
+
+        <TabPanel>
+          {filteredCars.map((car) => {
+            if (car.subCategory === "truck") {
+              return <div key={car._id}>{car.name}</div>;
+            }
+            return null;
+          })}
+        </TabPanel>
+
+        <TabPanel>
+          {filteredCars.map((car) => {
+            if (car.subCategory === "sportsCar") {
+              return <div key={car._id}>{car.name}</div>;
+            }
+            return null;
+          })}
+        </TabPanel>
+      </Tabs>
     </div>
-  </>
-);
+  );
+};
 
 export default TabCategory;

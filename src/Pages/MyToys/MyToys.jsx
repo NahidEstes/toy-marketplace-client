@@ -14,6 +14,7 @@ const MyToys = () => {
         console.log(data);
         if (data.deletedCount > 0) {
           const remainingToysItem = toysItem.filter((toy) => toy._id !== id);
+
           setToysItem(remainingToysItem);
         }
       });

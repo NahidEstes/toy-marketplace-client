@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const MyToys = () => {
   const toysData = useLoaderData();
+  const [toysItem, setToysItem] = useState(toysData);
+  const handleDeleteItem = (id) => {
+    console.log(id);
+    fetch(`http://localhost:5000/toys/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          const remainingToysItem = toysItem.filter((toy) => toy._id !== id);
+          setToysItem(remainingToysItem);
+        }
+      });
+  };
   return (
     <div className="custom-container">
-      <h1 className="text-center text-3xl font-semibold">My Toys</h1>
+      <h1 className="text-center text-3xl font-semibold">
+        My Toys: {toysData.length}
+      </h1>
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr>
@@ -34,7 +51,7 @@ const MyToys = () => {
               <td className="py-2 px-2 border-b">{toy.name}</td>
               <td className="py-2 px-2 border-b">{toy.subCategory}</td>
               <td className="py-2 px-2 border-b">{toy.price}</td>
-              <td className="py-2 px-2 border-b">{toy.availableQuantity}</td>
+              <td className="py-2 px-2 border-b">{toy.quantity}</td>
               <td className="py-2 px-2 border-b">
                 <Link to="/update">
                   <button className="bg-blue-500 text-white py-2 px-2 rounded hover:bg-blue-600">
@@ -43,7 +60,10 @@ const MyToys = () => {
                 </Link>
               </td>
               <td className="py-2 px-2 border-b">
-                <button className="bg-red-500 text-white py-2 px-2 rounded hover:bg-red-600">
+                <button
+                  onClick={() => handleDeleteItem(toy._id)}
+                  className="bg-red-500 text-white py-2 px-2 rounded hover:bg-red-600"
+                >
                   Delete
                 </button>
               </td>

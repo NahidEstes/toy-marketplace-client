@@ -46,7 +46,7 @@ const Form = () => {
       <div className="flex flex-col md:flex-row">
         <div className="md:w-1/2 px-4">
           <label htmlFor="name" className="block mb-2">
-            Name:
+            Toy Name:
           </label>
           <input
             type="text"
@@ -113,10 +113,10 @@ const Form = () => {
             name="subCategory"
             className="w-full border border-gray-300 p-2 rounded mb-4"
           >
-            <option value="">Select Sub-category</option>
-            <option value="subcategory1">Sub-category 1</option>
-            <option value="subcategory2">Sub-category 2</option>
-            <option value="subcategory3">Sub-category 3</option>
+            <option value="">Choose Category</option>
+            <option value="Police Car">Police Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Sports Car">Sports Car</option>
           </select>
 
           <label htmlFor="rating" className="block mb-2">

@@ -78,6 +78,17 @@ const Header = () => {
 
             <li>
               <NavLink
+                to="/myToys"
+                aria-label="MyToys"
+                title="MyToys"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                My Toys
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
                 to="/addToy"
                 aria-label="AddToy"
                 title="AddToy"

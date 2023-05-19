@@ -1,79 +1,31 @@
-import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-const TabCategory = () => {
-  return (
-    <div className="custom-container">
-      <Tabs>
-        <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
-          <Tab>Tab 3</Tab>
-        </TabList>
+const TabCategory = () => (
+  <>
+    <div className="custom-container mt-16">
+      <h1 className="text-center text-3xl font-bold">Shop Category</h1>
+      <div className="mt-5">
+        <Tabs>
+          <TabList>
+            <Tab>Police Car</Tab>
+            <Tab>Truck</Tab>
+            <Tab>Sports Car</Tab>
+          </TabList>
 
-        <TabPanel>
-          <Tabs>
-            <TabList>
-              <Tab>Subcategory 1</Tab>
-              <Tab>Subcategory 2</Tab>
-              <Tab>Subcategory 3</Tab>
-            </TabList>
-
-            <TabPanel>
-              <h3>Content of Subcategory 1</h3>
-            </TabPanel>
-            <TabPanel>
-              <h3>Content of Subcategory 2</h3>
-            </TabPanel>
-            <TabPanel>
-              <h3>Content of Subcategory 3</h3>
-            </TabPanel>
-          </Tabs>
-        </TabPanel>
-
-        <TabPanel>
-          <Tabs>
-            <TabList>
-              <Tab>Subcategory 4</Tab>
-              <Tab>Subcategory 5</Tab>
-              <Tab>Subcategory 6</Tab>
-            </TabList>
-
-            <TabPanel>
-              <h3>Content of Subcategory 4</h3>
-            </TabPanel>
-            <TabPanel>
-              <h3>Content of Subcategory 5</h3>
-            </TabPanel>
-            <TabPanel>
-              <h3>Content of Subcategory 6</h3>
-            </TabPanel>
-          </Tabs>
-        </TabPanel>
-
-        <TabPanel>
-          <Tabs>
-            <TabList>
-              <Tab>Subcategory 7</Tab>
-              <Tab>Subcategory 8</Tab>
-              <Tab>Subcategory 9</Tab>
-            </TabList>
-
-            <TabPanel>
-              <h3>Content of Subcategory 7</h3>
-            </TabPanel>
-            <TabPanel>
-              <h3>Content of Subcategory 8</h3>
-            </TabPanel>
-            <TabPanel>
-              <h3>Content of Subcategory 9</h3>
-            </TabPanel>
-          </Tabs>
-        </TabPanel>
-      </Tabs>
+          <TabPanel>
+            <h2>Any content 1</h2>
+          </TabPanel>
+          <TabPanel>
+            <h2>Any content 2</h2>
+          </TabPanel>
+          <TabPanel>
+            <h2>Any content 4</h2>
+          </TabPanel>
+        </Tabs>
+      </div>
     </div>
-  );
-};
+  </>
+);
 
 export default TabCategory;

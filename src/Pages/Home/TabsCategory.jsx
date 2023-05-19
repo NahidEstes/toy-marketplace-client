@@ -41,7 +41,7 @@ const TabCategory = () => {
         </TabList>
 
         <TabPanel>
-          <div className="grid grid-cols-2 lg:ml-10 lg:p-5">
+          <div className="grid grid-cols-3 gap-6 lg:p-5">
             {filteredCars.map((car) => {
               if (car.subCategory === "policeCar") {
                 return (
@@ -50,7 +50,7 @@ const TabCategory = () => {
                     data-aos="fade-up"
                     data-aos-anchor-placement="top-center"
                   >
-                    <div className="lg:p-3 shadow-md rounded lg:w-96 h:96">
+                    <div className="lg:p-3 shadow-md rounded lg:w-96 h:96 mr-3">
                       <img src={car.pictureUrl} className=" rounded" alt="" />
                       <h1>{car.name}</h1>
                       <p>Price: {car.price}</p>

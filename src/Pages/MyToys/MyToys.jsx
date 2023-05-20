@@ -84,7 +84,7 @@ const MyToys = () => {
               <td className="py-2 px-2 border-b">{toy.price}</td>
               <td className="py-2 px-2 border-b">{toy.quantity}</td>
               <td className="py-2 px-2 border-b">
-                <Link to="/update">
+                <Link to={`/update/${toy._id}`}>
                   <button className="bg-blue-500 text-white py-2 px-2 rounded hover:bg-blue-600">
                     Update
                   </button>

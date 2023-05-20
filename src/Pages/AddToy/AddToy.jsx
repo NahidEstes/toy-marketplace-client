@@ -18,7 +18,7 @@ const Form = () => {
     const quantity = form.quantity.value;
     const description = form.description.value;
 
-    const user = {
+    const userInfo = {
       name,
       pictureUrl,
       sellerName,
@@ -29,13 +29,13 @@ const Form = () => {
       quantity,
       description,
     };
-    console.log(user);
+    console.log(userInfo);
     fetch("https://11th-assignment-server-nahidestes.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(userInfo),
     })
       .then((res) => res.json())
       .then((data) => {

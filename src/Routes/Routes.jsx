@@ -63,13 +63,17 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://11th-assignment-server-nahidestes.vercel.app/toysDetails/${params.id}`
+            `https://11th-assignment-server-nahidestes.vercel.app/toys/${params.id}`
           ),
       },
 
       {
-        path: "/update",
+        path: "/update/:id",
         element: <UpdateProduct />,
+        loader: ({ params }) =>
+          fetch(
+            `https://11th-assignment-server-nahidestes.vercel.app/toys/${params.id}`
+          ),
       },
 
       {

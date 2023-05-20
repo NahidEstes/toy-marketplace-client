@@ -1,14 +1,43 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateProduct = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const toysData = useLoaderData();
+  console.log(toysData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
     // Handle form submission
+    const form = e.target;
+    const price = form.price.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
+
+    const updatedToys = { price, quantity, description };
+    console.log(updatedToys);
+    fetch(
+      `https://11th-assignment-server-nahidestes.vercel.app/toys/${toysData._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedToys),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          alert("user updated successfully");
+        }
+      });
   };
 
   return (
     <div className="custom-container">
-      <h1 className="text-center text-3xl font-semibold my-5">Update Item</h1>
+      <h1 className="text-center text-3xl font-semibold my-5">
+        {toysData.name}
+      </h1>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <label htmlFor="price" className="block mb-2">
           Price:

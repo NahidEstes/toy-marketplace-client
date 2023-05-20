@@ -1,47 +1,31 @@
 const Banner = () => {
   return (
-    <div className="relative px-4 pt-16 mx-auto lg:py-32 md:px-8 xl:px-20 sm:max-w-xl md:max-w-full">
-      <div className="max-w-xl mx-auto lg:max-w-screen-xl">
-        <div className="mb-16 lg:max-w-lg lg:mb-0">
-          <div className="max-w-xl mb-6">
-            <div>
-              <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                Brand new
-              </p>
-            </div>
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              The quick, brown fox
-              <br className="hidden md:block" />
-              jumps over{" "}
-              <span className="inline-block text-deep-purple-accent-400">
-                a lazy dog
-              </span>
-            </h2>
-            <p className="text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+    <div className="relative z-20 flex items-center  ">
+      <div className="container relative flex flex-col items-center justify-between px-6 py-8 mx-auto">
+        <div className="flex flex-col">
+          <h1 className="w-full text-4xl font-light text-center text-gray-800 uppercase sm:text-5xl ">
+            Kids Choices Toys All in One Place
+          </h1>
+          <h2 className="w-full max-w-2xl py-8 mx-auto text-xl font-light text-center  ">
+            These vibrant and durable kids' car toys provide hours of
+            entertainment with their smooth wheels, realistic designs, and
+            imaginative play possibilities.
+          </h2>
+          <div className="flex items-center justify-center mt-4">
+            <p className="px-4 py-2 mr-4 text-white uppercase bg-gray-800 border-2 cursor-pointer border-transparent text-md hover:bg-gray-900">
+              Get started
             </p>
-          </div>
-          <div className="flex items-center">
-            <p className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-lg bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-              Explore Toys
-            </p>
-            <p
-              aria-label=""
-              className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-            >
-              Learn more
+            <p className="px-4 py-2 text-gray-800 uppercase bg-transparent border-2 cursor-pointer border-gray-800  hover:bg-gray-800 hover:text-white text-md">
+              Learn More
             </p>
           </div>
         </div>
-      </div>
-      <div className="flex justify-center h-full overflow-hidden lg:w-2/3 xl:w-1/2 lg:absolute lg:justify-start lg:bottom-0 lg:right-0 lg:items-center">
-        <img
-          src="https://i.ibb.co/1XWc9GD/photo-1532330393533-443990a51d10-ixlib-rb-4-0.jpg"
-          className="object-cover object-top w-full h-72 max-w-xl -mb-16 rounded shadow-2xl lg:ml-64 xl:ml-8 lg:-mb-24 xl:-mb-28 lg:h-auto lg:max-w-screen-md"
-          alt=""
-        />
+        <div className="relative block w-full mx-auto lg:mt-4 mt-6 md:mt-4">
+          <img
+            src="https://i.ibb.co/1XWc9GD/photo-1532330393533-443990a51d10-ixlib-rb-4-0.jpg"
+            className="max-w-xs m-auto md:max-w-2xl"
+          />
+        </div>
       </div>
     </div>
   );

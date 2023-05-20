@@ -21,32 +21,61 @@ const MyToys = () => {
 
   const handleDeleteItem = (id) => {
     console.log(id);
-    fetch(`https://11th-assignment-server-nahidestes.vercel.app/toys/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
+    // fetch(`https://11th-assignment-server-nahidestes.vercel.app/toys/${id}`, {
+    //   method: "DELETE",
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     Swal.fire({
+    //       title: "Are you sure?",
+    //       text: "You won't be able to revert this!",
+    //       icon: "warning",
+    //       showCancelButton: true,
+    //       confirmButtonColor: "#3085d6",
+    //       cancelButtonColor: "#d33",
+    //       confirmButtonText: "Yes, delete it!",
+    //     }).then((result) => {
+    //       if (result.isConfirmed) {
+    //         if (data.deletedCount > 0) {
+    //           const remainingToysItem = toysItem.filter(
+    //             (toy) => toy._id !== id
+    //           );
+    //           setToysItem(remainingToysItem);
+    //         }
+    //         Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    //       }
+    //     });
+    //   });
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `https://11th-assignment-server-nahidestes.vercel.app/toys/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
             if (data.deletedCount > 0) {
               const remainingToysItem = toysItem.filter(
                 (toy) => toy._id !== id
               );
               setToysItem(remainingToysItem);
             }
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
-      });
+          });
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
   };
   return (
     <div className="custom-container">

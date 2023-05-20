@@ -3,23 +3,26 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
-  const [isHovering, setIsHovering] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleHover = () => {
-    setIsHovering(true);
-  };
+  const [hovering, setHovering] = useState(false);
 
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
-
-  const logOutHandler = () => {
+  const logOutHandlerButton = () => {
     logOut()
       .then()
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleHover = () => {
+    setHovering(true);
+  };
+
+  const mouseLeaveHandler = () => {
+    setHovering(false);
   };
 
   return (
@@ -102,7 +105,7 @@ const Header = () => {
           {user ? (
             <div className="flex">
               <div className="lg:w-32 h-11 cursor-pointer">
-                {!isHovering && user.photoURL && (
+                {!hovering && user.photoURL && (
                   <img
                     src={user?.photoURL}
                     className="w-11 h-11 rounded-full border-none mr-3 transition-opacity duration-300 ease-in-out"
@@ -110,9 +113,9 @@ const Header = () => {
                     alt=""
                   />
                 )}
-                {isHovering && (
+                {hovering && (
                   <p
-                    onMouseLeave={handleMouseLeave}
+                    onMouseLeave={mouseLeaveHandler}
                     className="font-semibold capitalize text-lg transition-opacity duration-300 ease-in-out mt-3"
                   >
                     {user.displayName}
@@ -121,7 +124,7 @@ const Header = () => {
               </div>
               {/* <span>{user.displayName}</span> */}
               <button
-                onClick={logOutHandler}
+                onClick={logOutHandlerButton}
                 className="px-3 py-2 bg-blue-600 font-bold text-white rounded"
               >
                 Logout

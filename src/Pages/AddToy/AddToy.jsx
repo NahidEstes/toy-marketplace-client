@@ -107,6 +107,7 @@ const Form = () => {
             id="price"
             name="price"
             className="w-full border border-gray-300 p-2 rounded mb-4"
+            placeholder="$"
           />
 
           <label htmlFor="subCategory" className="block mb-2">

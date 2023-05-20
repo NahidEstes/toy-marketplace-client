@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 const TabCategory = () => {
@@ -51,9 +52,19 @@ const TabCategory = () => {
                     data-aos-anchor-placement="top-center"
                   >
                     <div className="lg:p-3 shadow-md rounded lg:w-96 h:96 mr-3">
-                      <img src={car.pictureUrl} className=" rounded" alt="" />
-                      <h1>{car.name}</h1>
-                      <p>Price: {car.price}</p>
+                      <img
+                        src={car.pictureUrl}
+                        className=" rounded custom-tab-image"
+                        alt=""
+                      />
+                      <h1 className="mt-4 text-xl">{car.name}</h1>
+                      <p className="my-2">Price: {car.price}</p>
+                      <p className="my-2">Rating: {car.rating}</p>
+                      <Link to={`/toyDetails/${car._id}`}>
+                        <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                          View Details
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 );
@@ -68,12 +79,8 @@ const TabCategory = () => {
             if (car.subCategory === "truck") {
               return (
                 <div key={car._id}>
-                  <div className="max-w-xs mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-                    <img
-                      className="w-full h-48 object-cover"
-                      src={car.pictureUrl}
-                      alt=""
-                    />
+                  <div className="max-w-xs mx-auto bg-white shadow-md rounded-lg overflow-hidden custom-tab">
+                    <img src={car.pictureUrl} className="" alt="" />
                     <div className="p-4">
                       <h3 className="text-xl font-medium text-gray-800">
                         {car.name}

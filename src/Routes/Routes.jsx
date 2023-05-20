@@ -55,12 +55,16 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/toyDetails",
+        path: "/toyDetails/:id",
         element: (
           <PrivateRoute>
             <ToysDetails />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(
+            `https://11th-assignment-server-nahidestes.vercel.app/toysDetails/${params.id}`
+          ),
       },
 
       {

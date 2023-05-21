@@ -29,14 +29,14 @@ const Header = () => {
     <div>
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <Link to="/" aria-label="ToyStore" title="ToyStore" className="flex">
+          <Link to="/" aria-label="ToyStars" title="ToyStars" className="flex">
             <img
               className="w-12"
               src="https://i.ibb.co/DDwNJ2M/logo.jpg"
               alt=""
             />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800">
-              Toy<span className="text-blue-600">Store</span>
+              Toy<span className="text-blue-600">Stars</span>
             </span>
           </Link>
 
@@ -170,12 +170,12 @@ const Header = () => {
                     <div>
                       <Link
                         to="/"
-                        aria-label="ToyStore"
-                        title="ToyStore"
+                        aria-label="ToyStars"
+                        title="ToyStars"
                         className="inline-flex items-center"
                       >
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          ToyStore
+                          ToyStars
                         </span>
                       </Link>
                     </div>

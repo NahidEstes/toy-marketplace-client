@@ -4,7 +4,7 @@ const Content = () => {
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <div>
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-            Brand new
+            Extreme Racer
           </p>
         </div>
         <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
@@ -31,13 +31,13 @@ const Content = () => {
                 height="24"
               />
             </svg>
-            <span className="relative">The</span>
+            <span className="relative">Experience</span>
           </span>{" "}
-          quick, brown fox jumps over a lazy dog
+          the Thrill of Sideways Speed
         </h2>
         <p className="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae.
+          Ignite the Playtime Speedway with these Cutting-Edge Toy Cars for
+          Heart-Pounding Racing Excitement
         </p>
       </div>
       <div className="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto">
@@ -62,12 +62,12 @@ const Content = () => {
             </div>
             <div>
               <h6 className="mb-2 font-semibold leading-5">
-                They urge you to put down
+                Speedster Squad: Lightning-Fast Toy Cars
               </h6>
               <p className="text-sm text-gray-900">
-                Skate ipsum dolor sit amet, alley oop vert mute-air Colby Carter
-                flail 180 berm. Half-cab camel back ollie transition ledge Wes
-                Humpston 1080.
+                Join the Speedster Squad with these lightning-fast toy cars.
+                With sleek designs and blazing speed, they'll conquer any racing
+                challenge with style and excitement.
               </p>
               <hr className="w-full my-6 border-gray-300" />
             </div>
@@ -92,12 +92,12 @@ const Content = () => {
             </div>
             <div>
               <h6 className="mb-2 font-semibold leading-5">
-                The powerless in a world
+                ZoomZoom Wheels: Supercharged Toy Car Fun
               </h6>
               <p className="text-sm text-gray-900">
-                The first mate and his Skipper too will do their very best to
-                make the others comfortable in their tropic island nest. Michael
-                Knight a young loner.
+                Get ready for high-speed fun with ZoomZoom Wheels! These
+                supercharged toy cars are designed for maximum speed and endless
+                racing adventures.
               </p>
               <hr className="w-full my-6 border-gray-300" />
             </div>
@@ -122,12 +122,12 @@ const Content = () => {
             </div>
             <div>
               <h6 className="mb-2 font-semibold leading-5">
-                Tell them I hate them
+                Swift Wheels: Racing Adventures Await
               </h6>
               <p className="text-sm text-gray-900">
-                Chase ball of string eat plants, meow, and throw up because I
-                ate plants going to catch the red dot today going to catch the
-                red dot today. I could pee on this if I had the energy.
+                Experience the thrill of racing with Swift Wheels! These dynamic
+                toy cars are built for speed, agility, and epic racing
+                adventures
               </p>
             </div>
           </div>
@@ -135,17 +135,17 @@ const Content = () => {
         <div className="grid grid-cols-2 gap-5">
           <img
             className="object-cover w-full h-56 col-span-2 rounded shadow-lg"
-            src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            src="https://i.ibb.co/D8gWrd1/best-car-toys-kids.jpg"
             alt=""
           />
           <img
             className="object-cover w-full h-48 rounded shadow-lg"
-            src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            src="https://i.ibb.co/4V4GkFM/depositphotos-125190864-stock-photo-close-up-of-toy-cars.webp"
             alt=""
           />
           <img
             className="object-cover w-full h-48 rounded shadow-lg"
-            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            src="https://i.ibb.co/R2r24Qn/antique-blue-toy-car-close-up-images-cars-were-mimicked-as-parked-near-each-other-red-floor-13806724.jpg"
             alt=""
           />
         </div>

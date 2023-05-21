@@ -1,7 +1,10 @@
-import React from "react";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const ToysDetails = () => {
+  useTitle("Toy Details");
   const toyDetails = useLoaderData();
   console.log(toyDetails);
   const {
@@ -33,10 +36,10 @@ const ToysDetails = () => {
           <p>
             <span className="font-semibold">Price: </span> ${price}
           </p>
-          <p className="my-1">
-            <span className="font-semibold">Rating:</span>
-            {rating}
-          </p>
+          <div className="flex gap-3 items-center my-2">
+            <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
+            <p className="font-bold">{rating}</p>
+          </div>
           <p className="my-1">
             <span className="font-semibold">Quantity: </span> {quantity}
           </p>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -6,7 +6,37 @@ import Swal from "sweetalert2";
 const AllToys = () => {
   const toysData = useLoaderData();
   const { user } = useContext(AuthContext);
-  console.log(user);
+
+  // ------------------
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredData, setFilteredData] = useState(toysData);
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+
+    filterData(searchTerm);
+
+    // if (filteredData.length === 0) {
+    //   Swal.fire({
+    //     icon: "warning",
+    //     title: "No Item Found",
+    //   });
+    // }
+
+    console.log(filteredData);
+  };
+
+  const filterData = (searchTerm) => {
+    const filtered = toysData.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredData(filtered);
+  };
+  // -------------------------
   const buttonHandler = () => {
     console.log("cli");
     if (!user) {
@@ -14,7 +44,6 @@ const AllToys = () => {
         icon: "error",
         title: "Oops...",
         text: "Something went wrong!",
-        footer: '<a href="">Why do I have this issue?</a>',
       });
     }
   };
@@ -24,6 +53,26 @@ const AllToys = () => {
       <h1 className="text-center text-3xl font-semibold my-5">
         All Toys Item: {toysData.length}
       </h1>
+
+      {/* Search Feature */}
+      <div className="text-end my-4">
+        <form onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="p-1 border border-gray-400 rounded"
+          />
+          <button
+            type="submit"
+            className="py-1 px-2 ml-2 rounded bg-slate-300 font-semibold"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr>
@@ -37,7 +86,7 @@ const AllToys = () => {
           </tr>
         </thead>
         <tbody>
-          {toysData.map((toy, index) => (
+          {filteredData.map((toy, index) => (
             <tr
               key={toy._id}
               className={

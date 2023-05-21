@@ -23,7 +23,7 @@ const Banner = () => {
         <div className="relative block w-full mx-auto lg:mt-4 mt-6 md:mt-4">
           <img
             src="https://i.ibb.co/1XWc9GD/photo-1532330393533-443990a51d10-ixlib-rb-4-0.jpg"
-            className="max-w-xs m-auto md:max-w-2xl"
+            className="max-w-xs m-auto md:max-w-2xl rounded"
           />
         </div>
       </div>

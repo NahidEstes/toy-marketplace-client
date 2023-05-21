@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "./Banner";
 import TabCategory from "./TabsCategory";
 import GallerySection from "./GallerySection";
-import Test from "../../Test";
+import TableWithSearch from "../../Test";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       <Banner />
       <TabCategory />
       <GallerySection />
-      <Test />
+      <TableWithSearch />
     </div>
   );
 };

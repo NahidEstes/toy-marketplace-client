@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const GallerySection = () => {
   const [galleryImages, setGalleryImages] = useState([]);
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/galleryImages`)
+    fetch(`https://11th-assignment-server-eight.vercel.app/galleryImages`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -12,7 +16,10 @@ const GallerySection = () => {
       });
   }, []);
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div
+      className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+      data-aos="zoom-in"
+    >
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <div>
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
@@ -48,8 +55,8 @@ const GallerySection = () => {
           our talented team of professionals
         </h2>
         <p className="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae.
+          Sleek sports cars to rugged off-road vehicles, there's a toy car for
+          every adventure. Let the races begin with these incredible toy cars.
         </p>
       </div>
 
@@ -57,12 +64,12 @@ const GallerySection = () => {
         {galleryImages.map((image) => (
           <div
             key={image._id}
-            className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl"
+            className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
           >
             <img
               className="object-cover w-full h-56 md:h-64 xl:h-80"
               src={image.imgUrl}
-              alt="Person"
+              alt="Cars"
             />
             <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
               <p className="mb-1 text-lg font-bold text-gray-100">

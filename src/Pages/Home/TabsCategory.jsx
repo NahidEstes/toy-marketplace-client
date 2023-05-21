@@ -63,11 +63,7 @@ const TabCategory = () => {
             {filteredCars.map((car) => {
               if (car.subCategory === "Police Car") {
                 return (
-                  <div
-                    key={car._id}
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
-                  >
+                  <div key={car._id} data-aos="fade-up">
                     <div className="lg:p-3 p-3 shadow-md rounded lg:w-96 h:96 mr-3">
                       <img
                         src={car.pictureUrl}

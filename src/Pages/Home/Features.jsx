@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 import { FaBicycle, FaCar, FaTools, FaTruckPickup } from "react-icons/fa";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Feature = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div
+      className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+      data-aos="fade-left"
+    >
       <div className="flex flex-col lg:flex-row items-center">
         <div className="max-w-xl pr-16 mx-auto mb-10">
           <h5 className="mb-6 text-3xl font-extrabold leading-none">

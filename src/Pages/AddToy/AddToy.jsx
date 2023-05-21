@@ -44,7 +44,7 @@ const Form = () => {
       .then((data) => {
         console.log(data);
         Swal.fire("Good job!", "Successfully Added Toy Info  data", "success");
-        // form.reset();
+        form.reset();
       });
   };
 
@@ -108,7 +108,7 @@ const Form = () => {
             Price:
           </label>
           <input
-            type="text"
+            type="number"
             id="price"
             name="price"
             className="w-full border border-gray-300 p-2 rounded mb-4"

@@ -1,7 +1,16 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Content = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+      <div
+        className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+        data-aos="fade-down"
+      >
         <div>
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
             Extreme Racer
@@ -40,7 +49,10 @@ const Content = () => {
           Heart-Pounding Racing Excitement
         </p>
       </div>
-      <div className="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto">
+      <div
+        className="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto"
+        data-aos="fade-right"
+      >
         <div className="flex flex-col justify-center">
           <div className="flex">
             <div className="mr-4">

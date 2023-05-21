@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Rating } from "@smastrom/react-rating";

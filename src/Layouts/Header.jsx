@@ -26,22 +26,17 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div>
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <Link
-            to="/"
-            aria-label="ChefRecipe"
-            title="ChefRecipe"
-            className="flex"
-          >
+          <Link to="/" aria-label="ToyStore" title="ToyStore" className="flex">
             <img
               className="w-12"
               src="https://i.ibb.co/DDwNJ2M/logo.jpg"
               alt=""
             />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800">
-              Toy<span className="text-blue-600">Shop</span>
+              Toy<span className="text-blue-600">Store</span>
             </span>
           </Link>
 
@@ -146,7 +141,6 @@ const Header = () => {
             </Link>
           )}
 
-          {/* -------------- */}
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -176,12 +170,12 @@ const Header = () => {
                     <div>
                       <Link
                         to="/"
-                        aria-label="ChefRecipe"
-                        title="ChefRecipe"
+                        aria-label="ToyStore"
+                        title="ToyStore"
                         className="inline-flex items-center"
                       >
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          ChefRecipe
+                          ToyStore
                         </span>
                       </Link>
                     </div>

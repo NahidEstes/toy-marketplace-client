@@ -55,7 +55,10 @@ const GallerySection = () => {
 
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {galleryImages.map((image) => (
-          <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+          <div
+            key={image._id}
+            className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl"
+          >
             <img
               className="object-cover w-full h-56 md:h-64 xl:h-80"
               src={image.imgUrl}

@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <div className="relative z-20 flex items-center  ">
+    <div className="relative flex items-center  ">
       <div className="container relative flex flex-col items-center justify-between px-6 py-8 mx-auto">
         <div className="flex flex-col">
           <h1 className="w-full text-4xl font-light text-center text-gray-800 uppercase sm:text-5xl ">

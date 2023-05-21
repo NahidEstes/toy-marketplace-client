@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
-import App from "../App";
+// import App from "../App";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Blogs from "../Pages/Blogs/Blogs";
@@ -11,11 +11,12 @@ import MyToys from "../Pages/MyToys/MyToys";
 import UpdateProduct from "../Pages/UpdateProudct/UpdateProduct";
 import ToysDetails from "../Pages/ToysDetails/ToysDetails";
 import PrivateRoute from "./PrivateRoutes";
+import Main from "../Layouts/Main";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Main />,
     errorElement: <ErrorPage />,
     children: [
       {

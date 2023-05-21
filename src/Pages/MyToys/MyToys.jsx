@@ -52,7 +52,7 @@ const MyToys = () => {
   };
   return (
     <div className="custom-container">
-      <h1 className="text-center text-3xl font-semibold">
+      <h1 className="text-center text-3xl font-semibold my-5">
         My Toys: {toysItem.length}
       </h1>
       <table className="min-w-full bg-white border border-gray-300">

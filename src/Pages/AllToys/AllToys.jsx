@@ -17,10 +17,9 @@ const AllToys = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-
     filterData(searchTerm);
 
-    // if (filteredData.length === 0) {
+    // if (filteredData && filteredData.length === 0) {
     //   Swal.fire({
     //     icon: "warning",
     //     title: "No Item Found",

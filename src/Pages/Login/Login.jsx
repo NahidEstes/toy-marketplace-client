@@ -7,7 +7,7 @@ const Login = () => {
   const { loginUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("login page location", location);
+
   const from = location.state?.from?.pathname || "/";
 
   const logInHandler = (e) => {

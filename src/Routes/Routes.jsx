@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         path: "/allToys",
         element: <AllToys />,
         loader: () =>
-          fetch("https://11th-assignment-server-nahidestes.vercel.app/toys"),
+          fetch("https://11th-assignment-server-eight.vercel.app/toys"),
       },
       {
         path: "/myToys",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () =>
-          fetch("https://11th-assignment-server-nahidestes.vercel.app/toys"),
+          fetch("https://11th-assignment-server-eight.vercel.app/toys"),
       },
 
       {
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://11th-assignment-server-nahidestes.vercel.app/toys/${params.id}`
+            `https://11th-assignment-server-eight.vercel.app/toys/${params.id}`
           ),
       },
 
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: <UpdateProduct />,
         loader: ({ params }) =>
           fetch(
-            `https://11th-assignment-server-nahidestes.vercel.app/toys/${params.id}`
+            `https://11th-assignment-server-eight.vercel.app/toys/${params.id}`
           ),
       },
 

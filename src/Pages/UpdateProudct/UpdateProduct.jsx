@@ -1,9 +1,11 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const toysData = useLoaderData();
   console.log(toysData);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
@@ -15,7 +17,7 @@ const UpdateProduct = () => {
     const updatedToys = { price, quantity, description };
     console.log(updatedToys);
     fetch(
-      `https://11th-assignment-server-nahidestes.vercel.app/toys/${toysData._id}`,
+      `https://11th-assignment-server-eight.vercel.app/toys/${toysData._id}`,
       {
         method: "PUT",
         headers: {
@@ -28,7 +30,8 @@ const UpdateProduct = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("user updated successfully");
+          Swal.fire("Good job!", "You clicked the button!", "success");
+          navigate("/myToys");
         }
       });
   };

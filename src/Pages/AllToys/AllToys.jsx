@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AllToys = () => {
   const toysData = useLoaderData();
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const buttonHandler = () => {
+    console.log("cli");
+    if (!user) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
+    }
+  };
 
   return (
     <div className="custom-container">
@@ -37,8 +52,11 @@ const AllToys = () => {
               <td className="py-2 px-4 border-b">{toy.price}</td>
               <td className="py-2 px-4 border-b">{toy.quantity}</td>
               <td className="py-2 px-4 border-b">
-                <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                  <Link to="/toyDetails">View Details</Link>
+                <button
+                  onClick={buttonHandler}
+                  className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                >
+                  <Link to={`/toyDetails/${toy._id}`}>View Details</Link>
                 </button>
               </td>
             </tr>

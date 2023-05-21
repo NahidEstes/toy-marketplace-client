@@ -1,14 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const TabCategory = () => {
+  const { user } = useContext(AuthContext);
   const [selectedTab, setSelectedTab] = useState(0);
   const [cars, setCars] = useState([]);
 
+  const buttonHandler = () => {
+    console.log("asdfadsf");
+    if (!user) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You have to log in first to view details",
+      });
+    }
+  };
+
   useEffect(() => {
     // Fetch car data from the server
-    fetch("https://11th-assignment-server-nahidestes.vercel.app/toys")
+    fetch("https://11th-assignment-server-eight.vercel.app/toys")
       .then((response) => response.json())
       .then((data) => setCars(data))
       .catch((error) => console.error(error));
@@ -16,11 +32,11 @@ const TabCategory = () => {
 
   const filteredCars = cars.filter((car) => {
     if (selectedTab === 0) {
-      return car.subCategory === "policeCar";
+      return car.subCategory === "Police Car";
     } else if (selectedTab === 1) {
-      return car.subCategory === "truck";
+      return car.subCategory === "Truck";
     } else if (selectedTab === 2) {
-      return car.subCategory === "sportsCar";
+      return car.subCategory === "Sports Car";
     }
     return false;
   });
@@ -44,7 +60,7 @@ const TabCategory = () => {
         <TabPanel>
           <div className="grid lg:grid-cols-3 gap-6 lg:p-5">
             {filteredCars.map((car) => {
-              if (car.subCategory === "policeCar") {
+              if (car.subCategory === "Police Car") {
                 return (
                   <div
                     key={car._id}
@@ -59,9 +75,20 @@ const TabCategory = () => {
                       />
                       <h1 className="mt-4 text-xl">{car.name}</h1>
                       <p className="my-2">Price: {car.price}</p>
-                      <p className="my-2">Rating: {car.rating}</p>
+
+                      <div className="flex gap-3 items-center my-2">
+                        <Rating
+                          style={{ maxWidth: 150 }}
+                          value={car.rating}
+                          readOnly
+                        />
+                        <p className="font-bold">{car.rating}</p>
+                      </div>
                       <Link to={`/toyDetails/${car._id}`}>
-                        <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                        <button
+                          onClick={buttonHandler}
+                          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                        >
                           View Details
                         </button>
                       </Link>
@@ -75,59 +102,90 @@ const TabCategory = () => {
         </TabPanel>
 
         <TabPanel>
-          {filteredCars.map((car) => {
-            if (car.subCategory === "truck") {
-              return (
-                <div key={car._id}>
-                  <div className="max-w-xs mx-auto bg-white shadow-md rounded-lg overflow-hidden custom-tab">
-                    <img src={car.pictureUrl} className="" alt="" />
-                    <div className="p-4">
-                      <h3 className="text-xl font-medium text-gray-800">
-                        {car.name}
-                      </h3>
-                      <p className="text-gray-600 mt-2">${car.price}</p>
-                      <p className="text-gray-600 mt-2">Rating: {car.rating}</p>
-                      <div className="flex items-center mt-2"></div>
-                      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        View Details
-                      </button>
+          <div className="grid lg:grid-cols-3 gap-6 lg:p-5">
+            {filteredCars.map((car) => {
+              if (car.subCategory === "Truck") {
+                return (
+                  <div
+                    key={car._id}
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="top-center"
+                  >
+                    <div className="lg:p-3 p-3 shadow-md rounded lg:w-96 h:96 mr-3">
+                      <img
+                        src={car.pictureUrl}
+                        className=" rounded custom-tab-image"
+                        alt=""
+                      />
+                      <h1 className="mt-4 text-xl">{car.name}</h1>
+                      <p className="my-2">Price: {car.price}</p>
+                      <div className="flex gap-3 items-center my-2">
+                        <Rating
+                          style={{ maxWidth: 150 }}
+                          value={car.rating}
+                          readOnly
+                        />
+                        <p className="font-bold">{car.rating}</p>
+                      </div>
+                      <Link to={`/toyDetails/${car._id}`}>
+                        <button
+                          onClick={buttonHandler}
+                          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                        >
+                          View Details
+                        </button>
+                      </Link>
                     </div>
                   </div>
-                </div>
-              );
-            }
-            return null;
-          })}
+                );
+              }
+              return null;
+            })}
+          </div>
         </TabPanel>
 
         <TabPanel>
-          {filteredCars.map((car) => {
-            if (car.subCategory === "sportsCar") {
-              return (
-                <div key={car._id}>
-                  <div className="max-w-xs mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-                    <img
-                      className="w-full h-48 object-cover"
-                      src={car.pictureUrl}
-                      alt=""
-                    />
-                    <div className="p-4">
-                      <h3 className="text-xl font-medium text-gray-800">
-                        {car.name}
-                      </h3>
-                      <p className="text-gray-600 mt-2">${car.price}</p>
-                      <p className="text-gray-600 mt-2">Rating: {car.rating}</p>
-                      <div className="flex items-center mt-2"></div>
-                      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        View Details
-                      </button>
+          <div className="grid lg:grid-cols-3 gap-6 lg:p-5">
+            {filteredCars.map((car) => {
+              if (car.subCategory === "Sports Car") {
+                return (
+                  <div
+                    key={car._id}
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="top-center"
+                  >
+                    <div className="lg:p-3 p-3 shadow-md rounded lg:w-96 h:96 mr-3">
+                      <img
+                        src={car.pictureUrl}
+                        className=" rounded custom-tab-image"
+                        alt=""
+                      />
+                      <h1 className="mt-4 text-xl">{car.name}</h1>
+                      <p className="my-2">Price: {car.price}</p>
+                      <div className="flex gap-3 items-center my-2">
+                        <Rating
+                          style={{ maxWidth: 150 }}
+                          value={car.rating}
+                          readOnly
+                        />
+                        <p className="font-bold">{car.rating}</p>
+                      </div>
+                      <Link to={`/toyDetails/${car._id}`}>
+                        <button
+                          onClick={buttonHandler}
+                          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                        >
+                          View Details
+                        </button>
+                      </Link>
                     </div>
                   </div>
-                </div>
-              );
-            }
-            return null;
-          })}
+                );
+              }
+
+              return null;
+            })}
+          </div>
         </TabPanel>
       </Tabs>
     </div>

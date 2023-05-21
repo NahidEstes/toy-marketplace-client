@@ -60,6 +60,7 @@ const Form = () => {
             id="name"
             name="name"
             className="w-full border border-gray-300 p-2 rounded mb-4"
+            required
           />
 
           <label htmlFor="pictureUrl" className="block mb-2">
@@ -70,6 +71,7 @@ const Form = () => {
             id="pictureUrl"
             name="pictureUrl"
             className="w-full border border-gray-300 p-2 rounded mb-4"
+            required
           />
 
           <label htmlFor="sellerName" className="block mb-2">
@@ -81,6 +83,7 @@ const Form = () => {
             defaultValue={user.displayName}
             name="sellerName"
             className="w-full border border-gray-300 p-2 rounded mb-4"
+            required
           />
 
           <label htmlFor="sellerEmail" className="block mb-2">
@@ -92,6 +95,7 @@ const Form = () => {
             defaultValue={user.email}
             name="sellerEmail"
             className="w-full border border-gray-300 p-2 rounded mb-4"
+            required
           />
           <label htmlFor="description" className="block mb-2">
             Description:
@@ -113,6 +117,7 @@ const Form = () => {
             name="price"
             className="w-full border border-gray-300 p-2 rounded mb-4"
             placeholder="$"
+            required
           />
 
           <label htmlFor="subCategory" className="block mb-2">
@@ -137,6 +142,7 @@ const Form = () => {
             id="rating"
             name="rating"
             className="w-full border border-gray-300 p-2 rounded mb-4"
+            required
           />
 
           <label htmlFor="quantity" className="block mb-2">
@@ -147,6 +153,7 @@ const Form = () => {
             id="quantity"
             name="quantity"
             className="w-full border border-gray-300 p-2 rounded mb-4"
+            required
           />
         </div>
       </div>

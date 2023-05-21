@@ -5,4 +5,4 @@
 
 * When they posted their toys, then they can control their items they've posted by updating and deleting their toy information.
 * Besides without login anyone can see few information, such as: home page, all toys page and blog page
-* And this site totally connected to the cloud server which MongoDB database.
+* And this site totally connected to the cloud server which MongoDB database. So, anyone can get their information very easily.

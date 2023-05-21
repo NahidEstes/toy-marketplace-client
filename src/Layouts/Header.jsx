@@ -207,6 +207,17 @@ const Header = () => {
                           Home
                         </Link>
                       </li>
+
+                      <li>
+                        <Link
+                          to="/allToys"
+                          aria-label="AllToys"
+                          title="AllToys"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                          All Toys
+                        </Link>
+                      </li>
                       <li>
                         <Link
                           to="/blogs"
@@ -215,6 +226,16 @@ const Header = () => {
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Blogs
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/myToys"
+                          aria-label="MyToys"
+                          title="MyToys"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                          My Toys
                         </Link>
                       </li>
                       <li>

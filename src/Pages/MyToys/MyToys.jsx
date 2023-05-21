@@ -57,52 +57,54 @@ const MyToys = () => {
       <h1 className="text-center text-3xl font-semibold my-5">
         My Toys: {toysItem.length}
       </h1>
-      <table className="min-w-full bg-white border border-gray-300">
-        <thead>
-          <tr>
-            <th className="py-2 px-2 border-b font-semibold">Seller Name</th>
-            <th className="py-2 px-2 border-b font-semibold">Toy Name</th>
-            <th className="py-2 px-2 border-b font-semibold">Sub-category</th>
-            <th className="py-2 px-2 border-b font-semibold">Price</th>
-            <th className="py-2 px-2 border-b font-semibold">
-              Available Quantity
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {toysItem.map((toy, index) => (
-            <tr
-              key={toy._id}
-              className={
-                index % 2 === 0
-                  ? "bg-gray-100 text-center"
-                  : "bg-white text-center"
-              }
-            >
-              <td className="py-2 px-2 border-b">{toy.sellerName}</td>
-              <td className="py-2 px-2 border-b">{toy.name}</td>
-              <td className="py-2 px-2 border-b">{toy.subCategory}</td>
-              <td className="py-2 px-2 border-b">{toy.price}</td>
-              <td className="py-2 px-2 border-b">{toy.quantity}</td>
-              <td className="py-2 px-2 border-b">
-                <Link to={`/update/${toy._id}`}>
-                  <button className="bg-blue-500 text-white py-2 px-2 rounded hover:bg-blue-600">
-                    Update
-                  </button>
-                </Link>
-              </td>
-              <td className="py-2 px-2 border-b">
-                <button
-                  onClick={() => handleDeleteItem(toy._id)}
-                  className="bg-red-500 text-white py-2 px-2 rounded hover:bg-red-600"
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white border border-gray-300">
+          <thead>
+            <tr>
+              <th className="py-2 px-2 border-b font-semibold">Seller Name</th>
+              <th className="py-2 px-2 border-b font-semibold">Toy Name</th>
+              <th className="py-2 px-2 border-b font-semibold">Sub-category</th>
+              <th className="py-2 px-2 border-b font-semibold">Price</th>
+              <th className="py-2 px-2 border-b font-semibold">
+                Available Quantity
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {toysItem.map((toy, index) => (
+              <tr
+                key={toy._id}
+                className={
+                  index % 2 === 0
+                    ? "bg-gray-100 text-center"
+                    : "bg-white text-center"
+                }
+              >
+                <td className="py-2 px-2 border-b">{toy.sellerName}</td>
+                <td className="py-2 px-2 border-b">{toy.name}</td>
+                <td className="py-2 px-2 border-b">{toy.subCategory}</td>
+                <td className="py-2 px-2 border-b">{toy.price}</td>
+                <td className="py-2 px-2 border-b">{toy.quantity}</td>
+                <td className="py-2 px-2 border-b">
+                  <Link to={`/update/${toy._id}`}>
+                    <button className="bg-blue-500 text-white py-2 px-2 rounded hover:bg-blue-600">
+                      Update
+                    </button>
+                  </Link>
+                </td>
+                <td className="py-2 px-2 border-b">
+                  <button
+                    onClick={() => handleDeleteItem(toy._id)}
+                    className="bg-red-500 text-white py-2 px-2 rounded hover:bg-red-600"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import GallerySection from "./GallerySection";
 import Feature from "./Features";
 import Content from "./Content";
 import useTitle from "../../hooks/useTitle";
-import SortPricePage from "../../Test";
 
 const Home = () => {
   useTitle("Home");
@@ -16,7 +15,6 @@ const Home = () => {
       <GallerySection />
       <Feature />
       <Content />
-      <SortPricePage />
     </div>
   );
 };
